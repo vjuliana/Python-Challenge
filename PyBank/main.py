@@ -23,9 +23,17 @@ import os
 import csv
 
 # Join path to csv file 'budget_data'
-csvpath = os.path.join('Desktop', '..', 'Python-Challenge', 'PyBank', 'Resources' , 'budget_data.csv')
+csvpath = os.path.join('PyBank', 'Resources' , 'budget_data.csv')
 
 # Read file
-with open(csvpath) as csvfile:
-    budget_data = csv.reader(csvfile, delimiter=',')
-    print(budget_data)
+with open(csvpath, 'r') as csvfile:
+    bank_data = csv.reader(csvfile, delimiter=',')
+    
+     # Read the header row first 
+    csv_header = next(bank_data)
+    print(f"Header: {csv_header}")
+
+
+# Each row is read as a row
+    for row in bank_data:
+        print(row)
